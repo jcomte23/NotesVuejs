@@ -1,9 +1,32 @@
 {
-    "name": "laravel/laravel",
+    "name": "jcomte23/notes_page",
     "type": "project",
-    "description": "The skeleton application for the Laravel framework.",
-    "keywords": ["laravel", "framework"],
+    "description": "Proyecto de Laravel que implementa un sistema CRUD de notas con Vue.js. Proporciona una interfaz de usuario interactiva y receptiva para gestionar eficientemente las notas. Combina la potencia de Laravel como framework de backend y Vue.js como framework de frontend.",
+    "keywords": [
+        "laravel",
+        "vuejs",
+        "crud",
+        "notas",
+        "gestión",
+        "frontend",
+        "backend",
+        "interfaz de usuario",
+        "sistema interactivo",
+        "framework",
+        "desarrollo web",
+        "eficiencia",
+        "moderno",
+        "ágil"
+    ],
     "license": "MIT",
+    "authors": [
+        {
+            "name": "Javier Cómbita Téllez",
+            "email": "jcomte23@outlook.com",
+            "homepage": "https://javiercombita.com/",
+            "role": "Lead Developer"
+        }
+    ],
     "require": {
         "php": "^8.1",
         "guzzlehttp/guzzle": "^7.2",
