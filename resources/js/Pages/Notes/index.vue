@@ -6,6 +6,12 @@ defineProps({
     notes: Array,
 });
 
+const alertDestroy = id => {
+    if (confirm('Desea Eliminar?')) {
+       alert(id);
+    }
+}
+
 </script>
 
 <template>
@@ -13,8 +19,8 @@ defineProps({
         <template #header>
             <h2 class="font-semibold text-xl text-gray-800 leading-tight flex items-center justify-between">
                 Notes
-                <Link :href="route('notes.create')"
-                class="px-2 py-1 rounded-md  text-sm text-white bg-indigo-600">Create</Link>
+                <Link :href="route('notes.create')" class="px-2 py-1 rounded-md  text-sm text-white bg-indigo-600">Create
+                </Link>
             </h2>
         </template>
 
@@ -46,6 +52,10 @@ defineProps({
                                 <td class="px-6 py-4 whitespace-nowrap">
                                     <Link :href="route('notes.edit', note.id)"
                                         class="text-indigo-600 hover:text-indigo-900">Editar</Link>
+
+                                    <button @click.prevent="alertDestroy(note.id)"
+                                        class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded-md">Eliminar
+                                    </button>
                                 </td>
                             </tr>
                         </tbody>
