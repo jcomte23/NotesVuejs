@@ -10,9 +10,15 @@ const form = useForm({
     content: props.note.content
 });
 
+const alertDestroy = id => {
+    if (confirm('Desea Eliminar?')) {
+        form.delete(route('notes.destroy',id));
+    }
+}
 const submit = () => {
-    form.put(route('notes.update',props.note.id), form);
+    form.put(route('notes.update', props.note.id), form);
 };
+
 
 </script>
 
@@ -37,7 +43,11 @@ const submit = () => {
                         <textarea v-model="form.content" rows="8" class="form-input w-full rounded-md shadow-sm">
                         </textarea>
 
-                        <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-md">Editar</button>
+                        <button
+                            class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-md">Editar</button>
+                        <button @click.prevent="alertDestroy(note.id)"
+                            class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded-md">Eliminar
+                        </button>
                     </form>
                 </div>
             </div>
