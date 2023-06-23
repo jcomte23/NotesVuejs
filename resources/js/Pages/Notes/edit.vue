@@ -9,6 +9,11 @@ const form = useForm({
     excerpt: props.note.excerpt,
     content: props.note.content
 });
+
+const submit = () => {
+    form.put(route('notes.update',props.note.id), form);
+};
+
 </script>
 
 <template>
@@ -23,7 +28,7 @@ const form = useForm({
             <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
                 <Link :href="route('notes.index')" class="text-indigo-600 hover:text-indigo-900">Volver</Link>
                 <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
-                    <form class="px-3 py-2">
+                    <form @submit.prevent="submit" class="px-3 py-2">
                         <label>excerpt</label>
                         <textarea v-model="form.excerpt" class="form-input w-full rounded-md shadow-sm">
                         </textarea>
