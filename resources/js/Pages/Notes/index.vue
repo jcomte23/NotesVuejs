@@ -11,8 +11,10 @@ defineProps({
 <template>
     <AppLayout title="Notes">
         <template #header>
-            <h2 class="font-semibold text-xl text-gray-800 leading-tight">
+            <h2 class="font-semibold text-xl text-gray-800 leading-tight flex items-center justify-between">
                 Notes
+                <Link :href="route('notes.create')"
+                class="px-2 py-1 rounded-md  text-sm text-white bg-indigo-600">Create</Link>
             </h2>
         </template>
 
