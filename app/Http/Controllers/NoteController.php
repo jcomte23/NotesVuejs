@@ -46,7 +46,7 @@ class NoteController extends Controller
      */
     public function edit(Note $note)
     {
-        return $note->id;
+        return Inertia::render('Notes/edit',compact('note'));
     }
 
     /**

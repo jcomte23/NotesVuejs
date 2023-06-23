@@ -1,5 +1,6 @@
 <script setup>
 import AppLayout from '@/Layouts/AppLayout.vue';
+import { Link } from '@inertiajs/vue3';
 
 defineProps({
     notes: Array,
@@ -8,7 +9,7 @@ defineProps({
 </script>
 
 <template>
-    <AppLayout title="Dashboard">
+    <AppLayout title="Notes">
         <template #header>
             <h2 class="font-semibold text-xl text-gray-800 leading-tight">
                 Notes
@@ -36,19 +37,20 @@ defineProps({
                             </tr>
                         </thead>
                         <tbody class="bg-white divide-y divide-gray-200">
-                            <tr v-for="note in notes" :key="note.id">
-                                <td class="px-6 py-4 whitespace-nowrap">{{ note.updated_at}}</td>
+                            <tr v-for="note in notes">
+                                <td class="px-6 py-4 whitespace-nowrap">{{ note.updated_at }}</td>
                                 <td class="px-6 py-4">{{ note.excerpt }}</td>
                                 <td class="px-6 py-4">{{ note.content }}</td>
                                 <td class="px-6 py-4 whitespace-nowrap">
-                                    <a :href="route('notes.edit', note)"
-                                        class="text-indigo-600 hover:text-indigo-900">Editar</a>
+                                    <Link :href="route('notes.edit', note.id)"
+                                        class="text-indigo-600 hover:text-indigo-900">Editar</Link>
                                 </td>
                             </tr>
-                    </tbody>
-                </table>
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
-    </div>
 
-</AppLayout></template>
+    </AppLayout>
+</template>
