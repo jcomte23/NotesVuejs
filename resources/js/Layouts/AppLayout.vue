@@ -208,7 +208,8 @@ const logout = () => {
                 </div>
 
                 <!-- Responsive Navigation Menu -->
-                <div :class="{ 'block': showingNavigationDropdown, 'hidden': !showingNavigationDropdown }" class="sm:hidden">
+                <div :class="{ 'block': showingNavigationDropdown, 'hidden': !showingNavigationDropdown }"
+                    class="sm:hidden">
                     <div class="pt-2 pb-3 space-y-1">
                         <ResponsiveNavLink :href="route('dashboard')" :active="route().current('dashboard')">
                             Dashboard
@@ -299,20 +300,24 @@ const logout = () => {
                                 </template>
                             </template>
                         </div>
+                    </div>
                 </div>
-            </div>
-        </nav>
+            </nav>
 
-        <!-- Page Heading -->
-        <header v-if="$slots.header" class="bg-white shadow">
-            <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
-                <slot name="header" />
-            </div>
-        </header>
+            <!-- Page Heading -->
+            <header v-if="$slots.header" class="bg-white shadow">
+                <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
+                    <slot name="header" />
+                </div>
+            </header>
 
-        <!-- Page Content -->
-        <main>
-            <slot />
-        </main>
+            <!-- Page Content -->
+            <main>
+                <div v-if="$page.props.flash.status" class="bg-blue-500 text-white text-sm font-bold p-4">
+                    <p>{{ $page.props.flash.status }}</p>
+                </div>
+                <slot></slot>
+            </main>
+        </div>
     </div>
-</div></template>
+</template>

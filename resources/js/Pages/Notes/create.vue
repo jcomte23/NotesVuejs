@@ -36,7 +36,7 @@ const submit = () => {
                         <textarea v-model="form.content" rows="8" class="form-input w-full rounded-md shadow-sm">
                         </textarea>
 
-                        <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-md">Editar</button>
+                        <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-md">Guardar</button>
                     </form>
                 </div>
             </div>
