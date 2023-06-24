@@ -1,9 +1,16 @@
 <script setup>
 import AppLayout from '@/Layouts/AppLayout.vue';
-import { Link } from '@inertiajs/vue3';
+import { Link ,router} from '@inertiajs/vue3';
+import { ref, watch  } from 'vue';
 
 defineProps({
     notes: Array,
+});
+
+const q = ref('');  
+
+watch(q, (value) => {
+  router.get( route( 'notes.index', { q: value } ), {}, { preserveState: true } );
 });
 
 </script>
